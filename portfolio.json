@@ -1,0 +1,124 @@
+[
+  {
+    "id": "personal-website",
+    "title": "Personal Website",
+    "context": "Personal Website with Tag-Based Portfolio",
+    "short_description": "Personal website with customized portfolio.",
+    "long_description": "Designed and developed the frontend of personal website. Utilized AI assistance for Javascript / portfolio tagging system.",
+    "tags": ["Frontend Development", "HTML"],
+    "tech_stack": ["HTML", "Javascript", "Claude", "JSON"],
+    "date": "2026-08-01",
+    "impact_score": 4,
+    "attachments": []
+  },
+  {
+    "id": "mcp-email-triage",
+    "title": "MCP Email Triage Agent",
+    "context": "Personal Project — Ongoing",
+    "short_description": "An always-on Claude agent that triages my inbox twice a day, clearing junk and surfacing what needs attention.",
+    "long_description": "Set up an MCP (Model Context Protocol) server that lets Claude review my email inbox twice a day. It rescues real mail from junk, reduces spam noise, and sends me a summary report from its own email address flagging anything that actually needs a response from me.",
+    "tags": ["AI/LLM", "Automation", "Agentic AI", "MCP"],
+    "tech_stack": ["Claude", "MCP", "Email APIs"],
+    "date": "2026-06-01",
+    "impact_score": 5,
+    "attachments": []
+  },
+  {
+    "id": "mcp-project-management",
+    "title": "MCP Notion for Project Management",
+    "context": "Personal Project",
+    "short_description": "Experience utilizing Notion for project management, and development of a Claude MCP to allow my agents to make edits.",
+    "long_description": "Notion for project management, including familiarity with functionalities such as databases and Wikis. Set up an MCP (Model Context Protocol) server that lets Claude access my Notion (without using Notion-hosted MCP).",
+    "tags": ["AI/LLM", "Automation", "Project Management", "MCP"],
+    "tech_stack": ["Claude", "MCP", "Project Management", "Notion"],
+    "date": "2026-06-01",
+    "impact_score": 3,
+    "attachments": []
+  },
+  {
+    "id": "bumblebee-survival",
+    "title": "Climate Change Impact on Pesticide Toxicity in Bumblebees",
+    "context": "Applied Survival Analysis — Course Research Paper",
+    "short_description": "Survival analysis of how future heatwave conditions alter pesticide toxicity in bumblebee colonies.",
+    "long_description": "Modeled bumblebee survival (n = 3,180, across 8 colonies) under current-day vs. future climate-change heatwave scenarios crossed with three pesticide treatments, using Kaplan-Meier curves and Cox Proportional Hazards models with colony-level and scenario x pesticide interaction terms. Found that although the future heatwave scenario roughly doubles baseline hazard, its interaction with pesticide exposure significantly reduced pesticide toxicity relative to current conditions — a counterintuitive result possibly explained by heat-triggered colony immune responses such as increased grooming, propolis deployment, and altruistic self-removal of exposed workers.",
+    "tags": ["Statistics", "Data Science", "R"],
+    "tech_stack": ["R", "Cox Proportional Hazards", "Kaplan-Meier Estimation"],
+    "date": "2026-05-06",
+    "impact_score": 1,
+    "attachments": [
+      {"name": "Full Report (PDF)", "type": "pdf", "url": "documents/bumblebee_survival_analysis.pdf"}
+    ]
+  },
+  {
+    "id": "isomer",
+    "title": "Isomer",
+    "context": "Hackathon Project — 2nd Place",
+    "short_description": "A Claude-powered connection engine that links concepts together to guide personalized learning paths.",
+    "long_description": "Built Isomer, a learning tool that uses the Claude API to act as a 'connection engine' — mapping how concepts relate to one another and using those connections to guide users through a personalized learning path. Won 2nd place at a hackathon.",
+    "tags": ["AI/LLM", "Hackathon"],
+    "tech_stack": ["Claude API"],
+    "date": "2026-05-01",
+    "impact_score": 2,
+    "attachments": []
+  },
+  {
+    "id": "credit-ai-agent",
+    "title": "AI Agent to Analyze Client Credit",
+    "context": "IPFS - PFS Financial Analytics Intern",
+    "short_description": "Developed an AI agent and engineered an API gateway to streamline credit analysis by analyzing data from external sources.",
+    "long_description": "Built API tooling to access external sources, including the Department of Transportation and FMSCA, Dun & Bradstreet, and SEC reports. Engineered an AI agent with access to these tools and internal data sources, and trained on analysis of client credit. Time savings of roughly 140 hours a week across the company on client credit analysis.",
+    "tags": ["Python", "AI/LLM", "Automation", "Agentic AI"],
+    "tech_stack": ["Python", "APIs"],
+    "date": "2026-07-01",
+    "impact_score": 9,
+    "attachments": []
+  },
+  {
+    "id": "churn-segmentation",
+    "title": "Customer Segmentation & Churn Prediction",
+    "context": "MFA Oil Company — Operational Efficiency Summer Intern",
+    "short_description": "Built customer volume segmentation and a churn-prediction algorithm from purchasing behavior deviations.",
+    "long_description": "Built customer reporting metrics, including a Jenks Natural Breaks algorithm to bin customers into volume categories based on the distribution of customer volume, and a soft-loss algorithm to predict customer churn based on deviations in unique customer purchasing behavior.",
+    "tags": ["Statistics", "Machine Learning", "Python", "Data Science"],
+    "tech_stack": ["Python", "Jenks Natural Breaks", "Churn Modeling"],
+    "date": "2025-08-01",
+    "impact_score": 8,
+    "attachments": []
+  },
+  {
+    "id": "sales-regression",
+    "title": "Weather-Driven Sales Regression Model",
+    "context": "MFA Oil Company — Operational Efficiency Summer Intern",
+    "short_description": "Python regression tool quantifying how weather variation drives weekly sales, used by 142 business unit managers.",
+    "long_description": "Built a regression algorithm in Python that calculates the percent of variation in weekly sales attributable to variations in weather patterns. Adopted as a weekly decision-making tool by 142 business unit managers.",
+    "tags": ["Statistics", "Python", "Data Science", "Machine Learning"],
+    "tech_stack": ["Python", "Regression Analysis"],
+    "date": "2025-08-01",
+    "impact_score": 8,
+    "attachments": []
+  },
+  {
+    "id": "sales-bi-report",
+    "title": "Sales Volume & Budget Power BI Report",
+    "context": "MFA Oil Company — Operational Efficiency Summer Intern",
+    "short_description": "Daily sales volume and budget report used by 160+ business unit managers and upper management.",
+    "long_description": "Designed and built a new sales volume and budget report in Power BI, adopted as a daily tool by more than 160 business unit managers and members of upper management.",
+    "tags": ["Power BI", "Business Intelligence", "Data Visualization"],
+    "tech_stack": ["Power BI", "Data Analysis", "SQL"],
+    "date": "2025-08-01",
+    "impact_score": 7,
+    "attachments": []
+  },
+  {
+    "id": "fabric-ml-pipelines",
+    "title": "ML Pipelines & Data Governance in Microsoft Fabric",
+    "context": "MFA Oil Company — Data Analysis & Governance Student Associate",
+    "short_description": "Built ML pipelines and gold-layer data mart infrastructure in Microsoft Fabric to expand ML access across BI teams.",
+    "long_description": "Constructed two machine learning pipelines in Microsoft Fabric to provide easier machine learning pathways for a team of 10+ business intelligence developers less experienced with ML. Helped build out medallion architecture and implemented gold-layer data mart infrastructure to improve data governance and make clean data available to users across the company. Also used Power BI and Power Automate to run a pipeline exporting JSON data into Fabric.",
+    "tags": ["Machine Learning", "Microsoft Fabric", "Power BI", "Computer Science"],
+    "tech_stack": ["Microsoft Fabric", "Power BI", "Data Engineering", "SQL", "Python"],
+    "date": "2026-01-01",
+    "impact_score": 9,
+    "attachments": []
+  }
+]

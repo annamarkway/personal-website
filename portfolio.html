@@ -1,0 +1,45 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<nav class="top-nav-bar">
+    <div class="page-nav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="agent.html">AnnaGPT</a>
+        <a href="contact.html">Contact Me</a>
+    </div>
+    <div class="section-nav">
+        <span class="section-nav-label">On this page</span>
+        <a href="#projects">Projects</a>
+    </div>
+</nav>
+
+<body>
+    <h1>Portfolio</h1>
+    <section id="projects" class="portfolio-section">
+        <p class="portfolio-subtitle">Data science, engineering, and AI projects — from coursework to production work to personal experiments.</p>
+        <div class="portfolio-toolbar">
+            <input id="search" class="portfolio-search" placeholder="Search projects...">
+            <select id="sort" class="portfolio-sort">
+                <option value="recent">Most Recent</option>
+                <option value="impact">Impact</option>
+            </select>
+        </div>
+        <div id="tag-filters" class="tag-filters"></div>
+        <div id="portfolio-grid" class="portfolio-grid"></div>
+    </section>
+
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div id="portfolio-modal" class="modal">
+        <div id="modal-close" class="modal-close">✕</div>
+        <div class="modal-context"></div>
+        <div class="modal-title"></div>
+        <div class="modal-body"></div>
+        <div class="modal-attachments"></div>
+    </div>
+
+    <script src="portfolio.js"></script>
+</body>
