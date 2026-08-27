@@ -38,10 +38,11 @@
 
     <h1 id="contact-form">Get in Touch</h1>
     <section class="contact-section contact-section-form">
-        <form action="" class="contact-form">
+        <form action="https://formspree.io/f/mkjnwbjd" method="POST" class="contact-form">
+            <input type="hidden" name="_subject" value="New message from {name} via personal site">
             <div class="form-field">
                 <label class="form-label">I am a...</label>
-                <select class="contact-select">
+                <select class="contact-select" name="audience">
                     <option>Student</option>
                     <option>Recruiter</option>
                     <option>Hiring manager</option>
@@ -51,17 +52,17 @@
 
             <div class="form-field">
                 <label class="form-label">Reason for reaching out</label>
-                <select class="contact-select">
+                <select class="contact-select" name="reason">
                     <option>Propose project collaboration</option>
                     <option>Encourage application to job position</option>
                     <option>Other</option>
                 </select>
             </div>
 
-            <input type="text" placeholder="Name" class="contact-input" required>
-            <input type="email" placeholder="Email" class="contact-input" required>
-            <input type="text" placeholder="Subject" class="contact-input">
-            <textarea placeholder="Message" class="contact-textarea" required></textarea>
+            <input type="text" placeholder="Name" class="contact-input" name="name" required>
+            <input type="email" placeholder="Email" class="contact-input" name="email" required>
+            <input type="text" placeholder="Subject" class="contact-input" name="subject">
+            <textarea placeholder="Message" class="contact-textarea" name="message" required></textarea>
 
             <button type="submit" class="doc-btn contact-submit">Submit</button>
         </form>
