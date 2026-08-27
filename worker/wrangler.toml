@@ -1,0 +1,10 @@
+name = "annagpt-proxy"
+main = "index.js"
+compatibility_date = "2026-08-27"
+
+[vars]
+ALLOWED_ORIGIN = "https://annamarkway.github.io,http://localhost:8123"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "83b058a18ae64bef8e35d187b423090b"

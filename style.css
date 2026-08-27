@@ -784,6 +784,75 @@ p {
     cursor: pointer;
 }
 
+.agent-section {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    max-width: 46rem;
+    margin: 0 auto;
+}
+
+.agent-subtitle {
+    color: var(--muted_gray);
+}
+
+.agent-log {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    min-height: 20rem;
+    max-height: 32rem;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: .25rem;
+    padding: 1rem;
+    background-color: var(--white);
+}
+
+.agent-message {
+    max-width: 80%;
+    padding: .6rem .9rem;
+    border-radius: .5rem;
+    line-height: 1.5;
+}
+
+.agent-message p {
+    white-space: pre-wrap;
+}
+
+.agent-message-bot {
+    align-self: flex-start;
+    background-color: var(--dark_blue_purple);
+    color: var(--white);
+}
+
+.agent-message-user {
+    align-self: flex-end;
+    background-color: var(--bright_purple);
+    color: var(--white);
+}
+
+.agent-message-pending {
+    opacity: .6;
+}
+
+.agent-message-error {
+    background-color: var(--dark_red_purple);
+}
+
+.agent-form {
+    display: flex;
+    gap: .75rem;
+}
+
+.agent-input {
+    flex: 1 1 auto;
+}
+
+.agent-submit {
+    align-self: stretch;
+}
+
 .calendly-inline-widget {
     width: 100%;
     border-radius: .25rem;

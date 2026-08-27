@@ -1,0 +1,38 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<nav class="top-nav-bar">
+    <div class="nav-top-row">
+        <div class="nav-brand">
+            <p class="nav-brand-name">Anna Markway</p>
+            <p class="nav-brand-tagline">Data Science + AI</p>
+        </div>
+        <div class="page-nav">
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="agent.html">AnnaGPT</a>
+            <a href="contact.html">Contact Me</a>
+        </div>
+    </div>
+</nav>
+
+<body>
+    <h1>AnnaGPT</h1>
+    <section class="agent-section">
+        <p class="agent-subtitle">Ask about Anna's resume, experience, or portfolio projects. Answers come from an AI agent grounded in her actual resume and project history.</p>
+        <div id="agent-log" class="agent-log">
+            <div class="agent-message agent-message-bot">
+                <p>Hi, I'm AnnaGPT. Ask me anything about Anna's education, work experience, or portfolio projects.</p>
+            </div>
+        </div>
+        <form id="agent-form" class="agent-form">
+            <input id="agent-input" class="contact-input agent-input" type="text" placeholder="Ask a question..." autocomplete="off" required>
+            <button type="submit" class="doc-btn agent-submit">Send</button>
+        </form>
+    </section>
+
+    <script src="agent.js"></script>
+</body>
