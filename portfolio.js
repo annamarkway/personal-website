@@ -77,6 +77,11 @@ function renderGrid(items) {
     const card = document.createElement('div');
     card.className = 'portfolio-card';
 
+    const date = document.createElement('p');
+    date.className = 'portfolio-card-date';
+    date.innerText = formatDate(item.date);
+    card.appendChild(date);
+
     const header = document.createElement('div');
     header.className = 'portfolio-card-header';
 
@@ -98,7 +103,7 @@ function renderGrid(items) {
 
     const meta = document.createElement('div');
     meta.className = 'portfolio-card-meta';
-    meta.innerText = `${formatDate(item.date)} • ${item.tech_stack.join(', ')}`;
+    meta.innerText = item.tech_stack.join(', ');
 
     const desc = document.createElement('p');
     desc.className = 'portfolio-card-desc';

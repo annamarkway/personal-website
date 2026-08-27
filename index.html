@@ -5,46 +5,60 @@
 </head>
 
 <nav class="top-nav-bar">
-    <div class="page-nav">
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="agent.html">AnnaGPT</a>
-        <a href="contact.html">Contact Me</a>
+    <div class="nav-top-row">
+        <div class="nav-brand">
+            <p class="nav-brand-name">Anna Markway</p>
+            <p class="nav-brand-tagline">Data Science + AI</p>
+        </div>
+        <div class="page-nav">
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="agent.html">AnnaGPT</a>
+            <a href="contact.html">Contact Me</a>
+        </div>
     </div>
     <div class="section-nav">
         <span class="section-nav-label">On this page</span>
         <a href="#intro">Intro</a>
+        <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#featured-projects">Featured Projects</a>
+        <a href="#entrepreneurship">Entrepreneurship</a>
     </div>
 </nav>
 
 <body>
     <section id="intro" class="intro">
-        <div class="intro-column">
-            <div class="intro-name">
-                <div class="main-greeting">
-                    <p>&lt;Hello World/&gt;</p>
-                </div>
-                <div class="my-name">
+        <div class="intro-inner">
+            <div class="intro-column">
+                <div class="intro-name">
+                    <p class="main-greeting">Hello World</p>
                     <p class="im">I'm</p>
-                    <p class="main-name">ANNA</p>
-                    <p class="main-name">MARKWAY</p>
+                    <p class="main-name">ANNA<br>MARKWAY</p>
+                </div>
+                <div class="intro-summary">
+                    <p>Data Science | Machine Learning | AI Engineering</p>
+                </div>
+                <div class="intro-links">
+                    <p>No time to browse? <a href="agent.html">Query an AI agent trained on my resume and portfolio</a>, <a href="">schedule a chat with me</a>, or <a href="documents/Markway_Resume.pdf" download>download</a> or <a href="documents/Markway_Resume.pdf" target="_blank" rel="noopener">preview</a> my resume.</p>
                 </div>
             </div>
-            <div class="intro-summary">
-                <p>Data Science | Machine Learning | AI Engineering</p>
+            <div class="hero-image">
+                <div class="hero-caption">
+                    <p class="hero-caption-eyebrow">University of Missouri - Columbia</p>
+                    <p class="hero-caption-title">Physics and Computer Science Student</p>
+                </div>
             </div>
-            <div class="intro-links">
-                <p>No time to browse? <a href="agent.html">Query an AI agent trained on my resume and portfolio</a>, <a href="">schedule a chat with me</a>, or <a href="documents/Markway_Resume.pdf" download>download</a> or <a href="documents/Markway_Resume.pdf" target="_blank" rel="noopener">preview</a> my resume.</p>
-            </div>
-        </div>
-        <div class="hero-image">
         </div>
     </section>
-    
-    <h1>Education</h1>
-    <section id="education" class="education-section">
+
+    <h1 id="about">About Me</h1>
+    <section class="prose-section">
+        <p>I'm curious about a lot of things beyond technology. I'm particularly interested in real estate, finance, and how businesses are built and operated. I enjoy learning about markets, following new businesses and ideas, and understanding the systems behind industries I don't work in directly.</p>
+    </section>
+
+    <h1 id="education">Education</h1>
+    <section class="education-section">
         <div class="education-top-row">
             <div class="mizzou-logo">
                 <img src="images/mizzou_logo.webp" alt="Mizzou logo">
@@ -89,8 +103,8 @@
         </div>
     </section>
 
-    <h1>Featured Projects</h1>
-    <section id="featured-projects" class="portfolio-section">
+    <h1 id="featured-projects">Featured Projects</h1>
+    <section class="portfolio-section">
         <p class="portfolio-subtitle">A few portfolio highlights of my most impactful projects</p>
         <div id="featured-projects-grid" class="portfolio-grid featured-projects-grid"></div>
         <div class="view-more-wrapper">
@@ -98,5 +112,14 @@
         </div>
     </section>
 
+    <h1 id="entrepreneurship">Entrepreneurship</h1>
+    <section class="prose-section">
+        <p>I love building things—and I especially love being around people who are trying to build something new.</p>
+        <p>While my academic and professional work is heavily focused on data science, I've always been drawn to the entrepreneurial side of technology: identifying problems, testing ideas, talking to customers, and figuring out how to turn an idea into something people actually want.</p>
+        <p>I regularly compete in startup weekends and spend time in the Kansas City entrepreneurship community through groups like Pipeline, Digital Health KC, and 1 Million Cups. I enjoy the conversations as much as the competition—hearing how other people think about problems, learning from founders, and getting exposed to industries and ideas outside of my technical background.</p>
+        <p>I haven't founded a startup of my own, and I'm perfectly happy with that. For me, entrepreneurship isn't a title I'm trying to earn; it's a way of thinking I genuinely enjoy learning about. I want to keep putting myself in rooms with people who are building, experimenting, and challenging the status quo.</p>
+    </section>
+
     <script src="home.js"></script>
+    <script src="insect.js"></script>
 </body>

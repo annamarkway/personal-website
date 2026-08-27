@@ -20,6 +20,10 @@ async function loadFeaturedProjects() {
     const card = document.createElement('div');
     card.className = 'portfolio-card';
 
+    const date = document.createElement('p');
+    date.className = 'portfolio-card-date';
+    date.innerText = formatDate(item.date);
+
     const header = document.createElement('div');
     header.className = 'portfolio-card-header';
 
@@ -34,7 +38,7 @@ async function loadFeaturedProjects() {
 
     const meta = document.createElement('div');
     meta.className = 'portfolio-card-meta';
-    meta.innerText = `${formatDate(item.date)} • ${item.tech_stack.join(', ')}`;
+    meta.innerText = item.tech_stack.join(', ');
 
     const desc = document.createElement('p');
     desc.className = 'portfolio-card-desc';
@@ -49,6 +53,7 @@ async function loadFeaturedProjects() {
       tagRow.appendChild(chip);
     });
 
+    card.appendChild(date);
     card.appendChild(header);
     card.appendChild(context);
     card.appendChild(meta);
