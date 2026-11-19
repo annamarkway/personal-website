@@ -1,0 +1,17 @@
+name: Check portfolio.json
+
+on:
+  push:
+    paths: ['portfolio.json', 'index.html', 'scripts/check-portfolio.mjs']
+  pull_request:
+    paths: ['portfolio.json', 'index.html', 'scripts/check-portfolio.mjs']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/check-portfolio.mjs
