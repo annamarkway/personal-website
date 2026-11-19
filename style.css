@@ -1065,6 +1065,23 @@ button.doc-btn {
     }
 }
 
+.not-found {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+}
+
+.not-found-insect {
+    width: 64px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    transform: rotate(35deg);
+}
+
+.not-found a {
+    color: var(--link_blue);
+}
+
 @media (max-width: 768px) {
     .top-nav-bar {
         font-size: 1.1rem;
