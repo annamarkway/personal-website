@@ -127,6 +127,12 @@
       const startY = randomBetween(EDGE_PADDING, window.innerHeight - EDGE_PADDING - BUG_SIZE);
       const bug = createBug(startX, startY);
       bug.addEventListener('click', showPopup);
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // No wandering for visitors who ask for less motion: park the bug in a corner instead.
+        bug.style.left = (window.innerWidth - BUG_SIZE - EDGE_PADDING) + 'px';
+        bug.style.top = (window.innerHeight - BUG_SIZE - EDGE_PADDING) + 'px';
+        return;
+      }
       startWandering(bug, startX, startY);
     }, APPEAR_DELAY);
   });
