@@ -20,6 +20,21 @@ if (!Array.isArray(items)) {
 }
 
 const isString = v => typeof v === 'string' && v.trim() !== '';
+
+let filters = { types: [], areas: [], tools: [], toolAliases: {} };
+try {
+  filters = JSON.parse(readFileSync('filters.json', 'utf8'));
+} catch (err) {
+  console.error('filters.json is missing or not valid JSON: ' + err.message);
+  process.exit(1);
+}
+for (const list of ['types', 'areas', 'tools']) {
+  if (!Array.isArray(filters[list]) || !filters[list].every(v => typeof v === 'string' && v.trim() !== '')) {
+    errors.push(`filters.json: "${list}" must be a list of text values`);
+    filters[list] = [];
+  }
+}
+const allowed = (list, value) => filters[list].includes(value);
 const isStringList = v => Array.isArray(v) && v.every(isString);
 const ids = new Set();
 const employers = new Set();
@@ -33,6 +48,15 @@ items.forEach((p, i) => {
   }
   if (!isStringList(p.tags)) errors.push(`${where}: "tags" must be a list of text values`);
   if (!isStringList(p.tech_stack)) errors.push(`${where}: "tech_stack" must be a list of text values`);
+  if (!allowed('types', p.type)) {
+    errors.push(`${where}: "type" must be one of: ${filters.types.join(', ')}`);
+  }
+  if (!Array.isArray(p.areas) || p.areas.length === 0) {
+    errors.push(`${where}: "areas" must be a list with at least one area`);
+  } else {
+    p.areas.filter(a => !allowed('areas', a)).forEach(a =>
+      errors.push(`${where}: area "${a}" isn't in filters.json (allowed: ${filters.areas.join(', ')})`));
+  }
   if (typeof p.impact_score !== 'number') errors.push(`${where}: "impact_score" must be a number`);
 
   if (isString(p.date) && (!/^\d{4}-\d{2}-\d{2}$/.test(p.date) || isNaN(new Date(p.date + 'T00:00:00')))) {
@@ -68,6 +92,12 @@ if (existsSync('index.html')) {
   const html = readFileSync('index.html', 'utf8');
   for (const [, key] of html.matchAll(/portfolio\.html\?employer=([^"&#]+)/g)) {
     if (!employers.has(decodeURIComponent(key))) errors.push(`index.html links to employer "${key}", but no project has that "employer"`);
+  }
+  const facetLists = { type: 'types', area: 'areas', tool: 'tools' };
+  for (const [, param, raw] of html.matchAll(/portfolio\.html\?(?:[^"#]*&(?:amp;)?)?(type|area|tool)=([^"&#]+)/g)) {
+    for (const value of decodeURIComponent(raw).split(',')) {
+      if (!allowed(facetLists[param], value.trim())) errors.push(`index.html links to ${param} "${value}", which isn't in filters.json`);
+    }
   }
   for (const [, key] of html.matchAll(/portfolio\.html\?project=([^"&#]+)/g)) {
     if (!ids.has(decodeURIComponent(key))) errors.push(`index.html links to project "${key}", which doesn't exist`);

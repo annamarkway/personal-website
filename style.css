@@ -507,6 +507,11 @@ p {
     padding-top: 0;
 }
 
+/* The Portfolio page is dark all the way down, even when filters leave few projects. */
+body.page-portfolio {
+    background-color: var(--dark_blue_purple);
+}
+
 .portfolio-section {
     display: grid;
     gap: 1rem;
@@ -540,10 +545,66 @@ p {
     flex: 1 1 16rem;
 }
 
-.tag-filters {
+.filters {
+    display: grid;
+    gap: .75rem;
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    align-items: start;
+    gap: .75rem;
+}
+
+.filter-label {
+    color: var(--gold);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding-top: .5rem;
+}
+
+.filter-chips {
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
+}
+
+.chip-count {
+    margin-left: .4rem;
+    opacity: .65;
+    font-size: .75rem;
+}
+
+.tag-chip:disabled {
+    opacity: .35;
+    cursor: default;
+}
+
+.tag-chip:disabled:hover {
+    border-color: var(--light_purple);
+}
+
+.filter-summary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--gray);
+    font-size: .9rem;
+}
+
+.filter-clear {
+    font-family: inherit;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--gold);
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .tag-chip {
@@ -1187,6 +1248,15 @@ button.doc-btn {
 
     .skills-section {
         grid-template-columns: 1fr;
+    }
+
+    .filter-row {
+        grid-template-columns: 1fr;
+        gap: .4rem;
+    }
+
+    .filter-label {
+        padding-top: 0;
     }
 
     .modal {

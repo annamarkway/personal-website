@@ -2,9 +2,9 @@ name: Check portfolio.json
 
 on:
   push:
-    paths: ['portfolio.json', 'index.html', 'scripts/check-portfolio.mjs']
+    paths: ['portfolio.json', 'filters.json', 'index.html', 'scripts/check-portfolio.mjs']
   pull_request:
-    paths: ['portfolio.json', 'index.html', 'scripts/check-portfolio.mjs']
+    paths: ['portfolio.json', 'filters.json', 'index.html', 'scripts/check-portfolio.mjs']
 
 jobs:
   check:

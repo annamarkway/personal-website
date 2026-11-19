@@ -1,0 +1,20 @@
+{
+  "types": ["Work", "Personal", "Competition", "Coursework"],
+  "areas": [
+    "Quantitative Finance",
+    "Data Science & Statistics",
+    "Machine Learning",
+    "AI Engineering",
+    "Analytics & BI",
+    "Data Engineering",
+    "Software & Web"
+  ],
+  "tools": [
+    "Python", "R", "SQL", "JavaScript", "HTML",
+    "Power BI", "Microsoft Fabric", "Snowflake", "AWS",
+    "Claude", "MCP", "Notion"
+  ],
+  "toolAliases": {
+    "Claude API": "Claude"
+  }
+}
