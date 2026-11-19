@@ -70,8 +70,9 @@ window.addEventListener('load', () => {
 
   const suggestions = document.getElementById('agent-suggestions');
 
-  function ask(text) {
+  function ask(text, source) {
     if (input.disabled) return;
+    trackEvent(source === 'suggestion' ? 'annagpt-suggested-question' : 'annagpt-typed-question', 'AnnaGPT question');
     if (suggestions) suggestions.hidden = true;
     input.value = '';
     input.disabled = true;
@@ -90,7 +91,7 @@ window.addEventListener('load', () => {
 
   if (suggestions) {
     suggestions.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => ask(btn.innerText));
+      btn.addEventListener('click', () => ask(btn.innerText, 'suggestion'));
     });
   }
 });

@@ -128,6 +128,7 @@ function renderGrid(items) {
 }
 
 function openDetails(item) {
+  trackEvent('project-' + item.id, 'Project details: ' + item.title);
   const modal = document.getElementById('portfolio-modal');
   const overlay = document.getElementById('modal-overlay');
   modal.querySelector('.modal-context').innerText = item.context || '';

@@ -19,6 +19,7 @@ window.addEventListener('load', () => {
       });
       if (!resp.ok) throw new Error('Status ' + resp.status);
       form.reset();
+      trackEvent('contact-form-sent', 'Contact form sent');
       status.classList.add('contact-status-success');
       status.innerText = "Thanks! Your message was sent. I'll get back to you soon.";
     } catch (err) {
