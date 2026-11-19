@@ -1020,6 +1020,20 @@ button.doc-btn {
     background-color: var(--gold);
 }
 
+.agent-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.agent-suggestions[hidden] {
+    display: none;
+}
+
+.agent-suggestions .tag-chip {
+    text-align: left;
+}
+
 .form-honeypot {
     position: absolute;
     left: -10000px;

@@ -57,15 +57,29 @@ window.addEventListener('load', () => {
   const form = document.getElementById('agent-form');
   const input = document.getElementById('agent-input');
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const text = input.value.trim();
-    if (!text) return;
+  const suggestions = document.getElementById('agent-suggestions');
+
+  function ask(text) {
+    if (input.disabled) return;
+    if (suggestions) suggestions.hidden = true;
     input.value = '';
     input.disabled = true;
     sendMessage(text).finally(() => {
       input.disabled = false;
       input.focus();
     });
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+    ask(text);
   });
+
+  if (suggestions) {
+    suggestions.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => ask(btn.innerText));
+    });
+  }
 });
