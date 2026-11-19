@@ -72,6 +72,7 @@
     "tech_stack": ["Python", "APIs"],
     "date": "2026-07-01",
     "impact_score": 9,
+    "employer": "imperial-pfs",
     "featured": true,
     "result": "Up to 170 hrs/week saved",
     "attachments": []
@@ -86,6 +87,7 @@
     "tech_stack": ["Python", "Jenks Natural Breaks", "Churn Modeling"],
     "date": "2025-08-01",
     "impact_score": 8,
+    "employer": "mfa-oil-intern",
     "featured": true,
     "attachments": []
   },
@@ -99,6 +101,7 @@
     "tech_stack": ["Python", "Regression Analysis"],
     "date": "2025-08-01",
     "impact_score": 8,
+    "employer": "mfa-oil-intern",
     "result": "Used by 142 BU managers",
     "attachments": []
   },
@@ -112,6 +115,7 @@
     "tech_stack": ["Power BI", "Data Analysis", "SQL"],
     "date": "2025-08-01",
     "impact_score": 7,
+    "employer": "mfa-oil-intern",
     "result": "Used daily by 160+ managers",
     "attachments": []
   },
@@ -125,6 +129,7 @@
     "tech_stack": ["Microsoft Fabric", "Power BI", "Data Engineering", "SQL", "Python"],
     "date": "2026-01-01",
     "impact_score": 9,
+    "employer": "mfa-oil-associate",
     "attachments": []
   },
   {

@@ -661,8 +661,32 @@ p {
     top: 1rem;
     right: 1.5rem;
     color: var(--white);
+    background: none;
+    border: none;
+    padding: .25rem;
+    font-family: inherit;
     font-size: 1.25rem;
+    line-height: 1;
     cursor: pointer;
+}
+
+.modal-result {
+    display: inline-block;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: .25rem;
+    padding: .2rem .6rem;
+    margin-bottom: 1rem;
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+.modal-result[hidden] {
+    display: none;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 .modal-context {
@@ -897,6 +921,11 @@ p {
     overflow: hidden;
 }
 
+button.doc-btn {
+    font-family: inherit;
+    cursor: pointer;
+}
+
 .portfolio-card-result {
     align-self: flex-start;
     color: var(--dark_blue_purple);
@@ -905,6 +934,41 @@ p {
     padding: .15rem .5rem;
     font-size: .75rem;
     font-weight: 700;
+}
+
+.employer-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem 1rem;
+    color: var(--white);
+    background-color: var(--bright_purple);
+    border-left: .25rem solid var(--gold);
+    border-radius: .25rem;
+    padding: .6rem 1rem;
+    font-size: .9rem;
+}
+
+.employer-banner[hidden] {
+    display: none;
+}
+
+.employer-banner-clear {
+    font-family: inherit;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--gold);
+    background: none;
+    border: 1px solid var(--gold);
+    border-radius: .25rem;
+    padding: .3rem .6rem;
+    cursor: pointer;
+}
+
+.employer-banner-clear:hover {
+    color: var(--dark_blue_purple);
+    background-color: var(--gold);
 }
 
 @media (max-width: 768px) {
