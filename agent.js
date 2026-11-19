@@ -14,12 +14,23 @@ function appendMessage(role, text) {
   return wrapper;
 }
 
+function setBubbleText(bubble, text) {
+  const p = bubble.querySelector('p');
+  p.className = '';
+  p.removeAttribute('aria-label');
+  p.innerText = text;
+}
+
 async function sendMessage(text) {
   history.push({ role: 'user', content: text });
   appendMessage('user', text);
 
-  const pending = appendMessage('bot', 'Thinking...');
+  const pending = appendMessage('bot', '');
   pending.classList.add('agent-message-pending');
+  const dots = pending.querySelector('p');
+  dots.className = 'typing-dots';
+  dots.setAttribute('aria-label', 'AnnaGPT is typing');
+  dots.innerHTML = '<span></span><span></span><span></span>';
 
   try {
     const resp = await fetch(WORKER_URL, {
@@ -29,7 +40,7 @@ async function sendMessage(text) {
     });
 
     if (resp.status === 429) {
-      pending.querySelector('p').innerText = "You've hit the question limit for now - please try again in a little while.";
+      setBubbleText(pending, "You've hit the question limit for now - please try again in a little while.");
       pending.classList.remove('agent-message-pending');
       pending.classList.add('agent-message-error');
       history.pop();
@@ -42,11 +53,11 @@ async function sendMessage(text) {
 
     const data = await resp.json();
     const reply = data.reply || "Sorry, I didn't get a response. Try again in a moment.";
-    pending.querySelector('p').innerText = reply;
+    setBubbleText(pending, reply);
     pending.classList.remove('agent-message-pending');
     history.push({ role: 'assistant', content: reply });
   } catch (err) {
-    pending.querySelector('p').innerText = "Something went wrong reaching the agent. Please try again, or use the Contact page.";
+    setBubbleText(pending, "Something went wrong reaching the agent. Please try again, or use the Contact page.");
     pending.classList.remove('agent-message-pending');
     pending.classList.add('agent-message-error');
     history.pop();
