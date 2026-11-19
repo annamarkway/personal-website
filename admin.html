@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Editor | Anna Markway</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="images/insect.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #f6f4f9; color: var(--night_blue); }
+        .admin-header {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem;
+            background-color: var(--dark_blue_purple); color: var(--white); padding: .9rem 1.25rem;
+            border-bottom: .3rem solid var(--gold);
+        }
+        .admin-header h1 { background: none; border: none; padding: 0; font-size: 1.25rem; }
+        .admin-header .folder { color: var(--gray); font-size: .85rem; }
+        .admin-main { max-width: 90rem; margin: 0 auto; padding: 1.25rem; }
+        .panel { background: var(--white); border: 1px solid #e4dfec; border-radius: .4rem; padding: 1.25rem; }
+        .connect-panel { max-width: 40rem; margin: 3rem auto; }
+        .connect-panel h2 { color: var(--dark_blue_purple); margin-bottom: .75rem; }
+        .connect-panel p { line-height: 1.6; margin-bottom: .75rem; }
+        .btn {
+            font-family: inherit; font-size: .9rem; font-weight: 600; cursor: pointer;
+            border-radius: .3rem; padding: .5rem .9rem; border: 1px solid var(--bright_purple);
+            background: var(--bright_purple); color: var(--white);
+        }
+        .btn:hover { background: var(--dark_blue_purple); }
+        .btn:disabled { opacity: .5; cursor: default; }
+        .btn-light { background: var(--white); color: var(--bright_purple); }
+        .btn-light:hover { background: #f4eef8; }
+        .btn-danger { background: var(--white); color: #b3261e; border-color: #b3261e; }
+        .btn-danger:hover { background: #fdecea; }
+        .btn-small { font-size: .8rem; padding: .25rem .55rem; }
+        .editor { display: grid; grid-template-columns: 16rem minmax(0, 1fr) 22rem; gap: 1.25rem; align-items: start; }
+        .project-list { display: grid; gap: .35rem; }
+        .project-list h2, .preview-panel h2, .form-panel h2 { font-size: 1rem; color: var(--dark_blue_purple); margin-bottom: .5rem; }
+        .project-item {
+            text-align: left; font-family: inherit; cursor: pointer; background: none; color: var(--night_blue);
+            border: 1px solid transparent; border-radius: .3rem; padding: .45rem .6rem; display: grid; gap: .1rem;
+        }
+        .project-item:hover { background: #f4eef8; }
+        .project-item.active { background: #f4eef8; border-color: var(--light_purple); }
+        .project-item .t { font-weight: 600; font-size: .9rem; }
+        .project-item .m { color: var(--muted_gray); font-size: .75rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+        .field { display: grid; gap: .3rem; align-content: start; }
+        .field.full { grid-column: 1 / -1; }
+        .field label, .field .label { font-weight: 600; font-size: .85rem; color: var(--dark_blue_purple); }
+        .hint { color: var(--muted_gray); font-size: .78rem; line-height: 1.4; }
+        .field input[type=text], .field input[type=date], .field input[type=number], .field input[type=url],
+        .field select, .field textarea {
+            font-family: inherit; font-size: .95rem; padding: .45rem .55rem; border: 1px solid #cfc6db;
+            border-radius: .3rem; background: var(--white); color: var(--night_blue); width: 100%; box-sizing: border-box;
+        }
+        .field textarea { min-height: 7rem; resize: vertical; line-height: 1.5; }
+        .chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+        .pick {
+            font-family: inherit; font-size: .82rem; cursor: pointer; border-radius: .25rem; padding: .3rem .6rem;
+            border: 1px solid #d9cce6; background: #f7f3fa; color: var(--bright_purple);
+        }
+        .pick[aria-pressed=true] { background: var(--bright_purple); color: var(--white); border-color: var(--bright_purple); }
+        .pick.new::after { content: " new"; font-size: .7rem; opacity: .8; }
+        .token {
+            display: inline-flex; align-items: center; gap: .3rem; font-size: .82rem; border-radius: .25rem;
+            padding: .25rem .25rem .25rem .55rem; background: #f7f3fa; border: 1px solid #d9cce6; color: var(--bright_purple);
+        }
+        .token button { font-family: inherit; border: none; background: none; cursor: pointer; color: var(--muted_gray); font-size: .9rem; }
+        .add-row { display: flex; gap: .4rem; margin-top: .4rem; }
+        .add-row input { flex: 1; }
+        .attachment-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; padding: .4rem 0; border-top: 1px solid #eee; }
+        .attachment-row .name { font-weight: 600; font-size: .88rem; }
+        .attachment-row .url { color: var(--muted_gray); font-size: .78rem; word-break: break-all; }
+        .attachment-row .pending { color: #8a5a00; font-size: .75rem; font-weight: 600; }
+        .attach-add { display: grid; gap: .5rem; margin-top: .6rem; padding: .75rem; background: #faf8fc; border: 1px dashed #d9cce6; border-radius: .3rem; }
+        .attach-add .add-row { margin-top: 0; flex-wrap: wrap; }
+        .form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #eee; }
+        .form-actions .spacer { flex: 1; }
+        .messages { display: grid; gap: .3rem; margin-top: .9rem; }
+        .msg { border-radius: .3rem; padding: .55rem .75rem; font-size: .88rem; line-height: 1.45; }
+        .msg-error { background: #fdecea; color: #8c1d18; }
+        .msg-warning { background: #fff4e0; color: #7a4d00; }
+        .msg-success { background: #eaf6ec; color: #1e5b2a; }
+        .preview-panel { position: sticky; top: 1rem; }
+        .preview-stage { background: var(--dark_blue_purple); border-radius: .4rem; padding: 1rem; }
+        .preview-stage .portfolio-card:hover { transform: none; }
+        .preview-details { margin-top: .9rem; }
+        .preview-details h3 { font-size: .85rem; color: var(--dark_blue_purple); margin-bottom: .3rem; }
+        .preview-details p { font-size: .85rem; line-height: 1.55; color: var(--night_blue); white-space: pre-wrap; }
+        [hidden] { display: none !important; }
+        @media (max-width: 1100px) {
+            .editor { grid-template-columns: 14rem minmax(0, 1fr); }
+            .preview-panel { grid-column: 1 / -1; position: static; }
+        }
+        @media (max-width: 760px) {
+            .editor, .form-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="admin-header">
+        <h1>Portfolio Project Editor</h1>
+        <span id="folder-status" class="folder">Not connected</span>
+    </header>
+
+    <main class="admin-main">
+        <section id="connect-panel" class="panel connect-panel">
+            <h2>Connect your website folder</h2>
+            <p>This editor saves straight into your <strong>personal-website</strong> folder: it updates <code>portfolio.json</code>, adds new areas or tools to <code>filters.json</code>, and copies attachments into <code>documents/</code>. Afterwards, commit and push as usual.</p>
+            <p id="unsupported" class="msg msg-error" hidden>This browser can't save to folders on your computer. Open this page in Chrome or Edge.</p>
+            <div class="add-row">
+                <button id="connect-btn" class="btn" type="button">Choose website folder</button>
+                <button id="reconnect-btn" class="btn btn-light" type="button" hidden>Reconnect to last folder</button>
+            </div>
+            <div id="connect-messages" class="messages"></div>
+        </section>
+
+        <section id="editor" class="editor" hidden>
+            <aside class="panel">
+                <div class="project-list">
+                    <h2>Projects</h2>
+                    <button id="new-btn" class="btn" type="button">+ New project</button>
+                    <div id="project-list" class="project-list"></div>
+                </div>
+            </aside>
+
+            <form id="project-form" class="panel form-panel" novalidate>
+                <h2 id="form-title">New project</h2>
+                <div class="form-grid">
+                    <div class="field full">
+                        <label for="f-title">Title</label>
+                        <input id="f-title" type="text" required>
+                    </div>
+                    <div class="field">
+                        <label for="f-id">ID</label>
+                        <input id="f-id" type="text" required spellcheck="false">
+                        <span id="id-hint" class="hint">Used in links like portfolio.html?project=… Filled in from the title.</span>
+                    </div>
+                    <div class="field">
+                        <label for="f-date">Date</label>
+                        <input id="f-date" type="date" required>
+                        <span class="hint">Cards show the month and year.</span>
+                    </div>
+                    <div class="field full">
+                        <label for="f-context">Context</label>
+                        <input id="f-context" type="text" required placeholder="e.g. MFA Oil Company — Operational Efficiency Summer Intern">
+                        <span class="hint">The gold line under the title: where or why you did it.</span>
+                    </div>
+                    <div class="field full">
+                        <label for="f-short">Short description</label>
+                        <textarea id="f-short" rows="2" style="min-height:3.5rem" required></textarea>
+                        <span class="hint">One or two sentences, shown on the card.</span>
+                    </div>
+                    <div class="field full">
+                        <label for="f-long">Long description</label>
+                        <textarea id="f-long" required></textarea>
+                        <span class="hint">Shown in "View Details". AnnaGPT also uses it to answer questions.</span>
+                    </div>
+
+                    <div class="field">
+                        <label for="f-type">Type</label>
+                        <select id="f-type"></select>
+                        <div id="type-new-row" class="add-row" hidden>
+                            <input id="type-new" type="text" placeholder="New type name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="f-employer">Employer</label>
+                        <select id="f-employer"></select>
+                        <div id="employer-new-row" class="add-row" hidden>
+                            <input id="employer-new" type="text" placeholder="e.g. acme-intern" spellcheck="false">
+                        </div>
+                        <span class="hint">Groups projects for an Experience entry's "View related projects" link.</span>
+                    </div>
+
+                    <div class="field full">
+                        <span class="label">Areas</span>
+                        <div id="areas" class="chips"></div>
+                        <div class="add-row">
+                            <input id="area-new" type="text" placeholder="Add a new area">
+                            <button id="area-add" class="btn btn-light btn-small" type="button">Add area</button>
+                        </div>
+                        <span class="hint">Pick at least one. New areas are added to the filter bar when you save.</span>
+                    </div>
+
+                    <div class="field full">
+                        <span class="label">Tools</span>
+                        <div id="tools" class="chips"></div>
+                        <div class="add-row">
+                            <input id="tool-new" type="text" placeholder="Add a new tool">
+                            <button id="tool-add" class="btn btn-light btn-small" type="button">Add tool</button>
+                        </div>
+                        <span class="hint">Filterable tools. They also appear in the card's tech line.</span>
+                    </div>
+
+                    <div class="field full">
+                        <span class="label">Other tech and methods</span>
+                        <div id="tech-other" class="chips"></div>
+                        <div class="add-row">
+                            <input id="tech-new" type="text" placeholder="e.g. Kaplan-Meier Estimation (press Enter)">
+                            <button id="tech-add" class="btn btn-light btn-small" type="button">Add</button>
+                        </div>
+                        <span class="hint">Shown in the card's tech line but not in the filters.</span>
+                    </div>
+
+                    <div class="field full">
+                        <span class="label">Card tags</span>
+                        <div id="tags" class="chips"></div>
+                        <div class="add-row">
+                            <input id="tag-new" type="text" list="tag-suggestions" placeholder="e.g. Market Making (press Enter)">
+                            <datalist id="tag-suggestions"></datalist>
+                            <button id="tag-add" class="btn btn-light btn-small" type="button">Add</button>
+                        </div>
+                        <span class="hint">The detailed tags shown on the card; search matches them too.</span>
+                    </div>
+
+                    <div class="field">
+                        <label for="f-impact">Impact score</label>
+                        <input id="f-impact" type="number" min="1" max="10" step="1" value="5">
+                        <span class="hint">Higher shows first under "Impact" sorting.</span>
+                    </div>
+                    <div class="field">
+                        <label for="f-result">Result badge <span class="hint">(optional)</span></label>
+                        <input id="f-result" type="text" placeholder="e.g. 2nd place">
+                    </div>
+                    <div class="field">
+                        <label for="f-status">Status badge <span class="hint">(optional)</span></label>
+                        <input id="f-status" type="text" placeholder="e.g. Ongoing">
+                    </div>
+                    <div class="field">
+                        <span class="label">Homepage</span>
+                        <label style="font-weight:400"><input id="f-featured" type="checkbox"> Feature on the homepage</label>
+                        <span id="featured-hint" class="hint"></span>
+                    </div>
+
+                    <div class="field full">
+                        <span class="label">Attachments</span>
+                        <div id="attachments"></div>
+                        <div class="attach-add">
+                            <div class="add-row">
+                                <input id="attach-file" type="file">
+                                <input id="attach-file-name" type="text" placeholder="Button label, e.g. Full Report (PDF)">
+                                <button id="attach-file-add" class="btn btn-light btn-small" type="button">Add file</button>
+                            </div>
+                            <div class="add-row">
+                                <input id="attach-link-url" type="url" placeholder="https://… (a link instead of a file)">
+                                <input id="attach-link-name" type="text" placeholder="Button label, e.g. GitHub repo">
+                                <button id="attach-link-add" class="btn btn-light btn-small" type="button">Add link</button>
+                            </div>
+                            <span class="hint">Files are copied into documents/ when you save.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button id="save-btn" class="btn" type="submit">Save project</button>
+                    <button id="revert-btn" class="btn btn-light" type="button">Discard changes</button>
+                    <span class="spacer"></span>
+                    <button id="delete-btn" class="btn btn-danger" type="button" hidden>Delete project</button>
+                </div>
+                <div id="form-messages" class="messages" aria-live="polite"></div>
+            </form>
+
+            <aside class="panel preview-panel">
+                <h2>Preview</h2>
+                <div id="preview" class="preview-stage"></div>
+                <div class="preview-details">
+                    <h3>View Details text</h3>
+                    <p id="preview-long"></p>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="cards.js"></script>
+    <script src="scripts/portfolio-rules.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
