@@ -257,6 +257,32 @@ p {
     margin-bottom: 0;
 }
 
+.photo-gallery {
+    max-width: 46rem;
+    margin: 1.5rem auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.photo-gallery-item {
+    margin: 0;
+}
+
+.photo-gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: .25rem;
+}
+
+.photo-gallery-item figcaption {
+    margin-top: .5rem;
+    color: var(--muted_gray);
+    font-size: .85rem;
+    text-align: center;
+}
+
 .education-section {
     display: grid;
     grid-template-rows: auto auto;
@@ -323,6 +349,7 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    margin-right: .5rem;
 }
 
 .minors {
@@ -330,7 +357,6 @@ p {
     background-size: cover;
     border-radius: .25rem;
     padding: 1rem 1.25rem;
-    margin-right: .5rem;
 }
 
 .minor-text {
@@ -348,6 +374,18 @@ p {
 .major-text {
     font-size: 1.25rem;
     color: var(--white);
+}
+
+.related-projects-link {
+    display: block;
+    color: var(--gold);
+    font-size: .85rem;
+    margin-top: .25rem;
+    text-decoration: none;
+}
+
+.related-projects-link:hover {
+    text-decoration: underline;
 }
 
 .coursework {
@@ -894,6 +932,10 @@ p {
     }
 
     .featured-projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-gallery {
         grid-template-columns: 1fr;
     }
 
