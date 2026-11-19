@@ -51,6 +51,11 @@ Claude Builder Club | Professional Outreach Coordinator | Jan 2026 – present
 APEX Microcredential | Jan 2026 – May 2026
 - Completed a 36-hour microcredential program on LLM training and implementation, covering transformers, tokenization, clustering, vectorization, deep learning, and NLP
 
+TigerQuant
+- Competed in the 2026 Susquehanna Predictions Cup (see Portfolio Projects)
+
+Career focus: quantitative finance, alongside data science, machine learning, and AI engineering.
+
 Interests: insects, pre-USSR Russian literature, entropy, real estate, ballroom dancing
 
 ## Portfolio Projects
@@ -65,6 +70,7 @@ Interests: insects, pre-USSR Russian literature, entropy, real estate, ballroom 
 - **Weather-Driven Sales Regression Model** (Aug 2025, at MFA Oil) — Python regression tool quantifying how weather variation drives weekly sales; adopted by 142 business unit managers. Tech: Python, Regression Analysis.
 - **Sales Volume & Budget Power BI Report** (Aug 2025, at MFA Oil) — Daily sales volume/budget report used by 160+ business unit managers and upper management. Tech: Power BI, Data Analysis, SQL.
 - **ML Pipelines & Data Governance in Microsoft Fabric** (Jan 2026, at MFA Oil) — Built two ML pipelines in Microsoft Fabric for a 10+ person BI team, plus gold-layer data mart infrastructure for data governance. Tech: Microsoft Fabric, Power BI, Data Engineering, SQL, Python.
+- **Susquehanna Predictions Cup 2026** (Nov 2026, with TigerQuant) — Month-long prediction market trading competition on the US Midterms. Ran a low-risk market making strategy that finished with a P&L of +20%, placing in the top 15% of about 2,000 active traders. Tech: Python, AWS.
 
 Full project details and links are on the Portfolio page (portfolio.html), which visitors can also browse directly.`;
 
