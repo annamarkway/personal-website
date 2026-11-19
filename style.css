@@ -1020,6 +1020,29 @@ button.doc-btn {
     background-color: var(--gold);
 }
 
+.form-honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.contact-status {
+    color: var(--muted_gray);
+    min-height: 1.25rem;
+}
+
+.contact-status-success {
+    color: var(--bright_purple);
+    font-weight: 600;
+}
+
+.contact-status-error {
+    color: #b3261e;
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
     .top-nav-bar {
         font-size: 1.1rem;
