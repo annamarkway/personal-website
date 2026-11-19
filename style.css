@@ -142,7 +142,7 @@ p {
 .hero-image {
     position: relative;
     aspect-ratio: 5 / 7;
-    background-image: url("images/headshot_formal_purpleshirt_2026.jpg");
+    background-image: url("images/headshot_web.jpg");
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
