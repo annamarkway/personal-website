@@ -3,6 +3,7 @@ main = "index.js"
 compatibility_date = "2026-08-27"
 
 [vars]
+PORTFOLIO_URL = "https://annamarkway.github.io/personal-website/portfolio.json"
 ALLOWED_ORIGIN = "https://annamarkway.github.io,http://localhost:8123"
 
 [[kv_namespaces]]
