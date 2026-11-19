@@ -283,6 +283,55 @@ p {
     text-align: center;
 }
 
+.experience-section {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: grid;
+    gap: 1.75rem;
+}
+
+.experience-item {
+    border-left: .2rem solid var(--gold);
+    padding-left: 1rem;
+}
+
+.experience-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: .25rem 1rem;
+}
+
+.experience-org {
+    margin: 0;
+    color: var(--dark_blue_purple);
+    font-size: 1.15rem;
+}
+
+.experience-dates {
+    color: var(--muted_gray);
+    font-size: .9rem;
+}
+
+.experience-role {
+    color: var(--bright_purple);
+    font-weight: 600;
+    margin-top: .15rem;
+}
+
+.experience-bullets {
+    color: var(--night_blue);
+    line-height: 1.6;
+    margin: .5rem 0;
+    padding-left: 1.25rem;
+}
+
+.experience-bullets li {
+    margin-bottom: .35rem;
+}
+
 .education-section {
     display: grid;
     grid-template-rows: auto auto;
