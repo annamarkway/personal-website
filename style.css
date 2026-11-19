@@ -897,6 +897,16 @@ p {
     overflow: hidden;
 }
 
+.portfolio-card-result {
+    align-self: flex-start;
+    color: var(--dark_blue_purple);
+    background-color: var(--gold);
+    border-radius: .25rem;
+    padding: .15rem .5rem;
+    font-size: .75rem;
+    font-weight: 700;
+}
+
 @media (max-width: 768px) {
     .top-nav-bar {
         font-size: 1.1rem;
